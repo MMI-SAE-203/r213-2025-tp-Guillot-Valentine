@@ -43,13 +43,15 @@ const offres = [
   <p class="text-lg font-semibold text-indigo-900 pt-10">
     Bienvenu sur la page des offres!
   </p>
-  <p class="text-indigo-900 pt-3">
-    Sur cette page vous pourrez découvrir différentes offres mis à votre
-    disposition
+  <p class="text-indigo-900 py-5">
+    Ci-dessous découvrez nos différentes offres !
   </p>
 
-  <div x-data="{ showFavorites: false }">
-    <button @click="showFavorites = !showFavorites">
+  <div class="text-indigo-950" x-data="{ showFavorites: false }">
+    <button
+      class="text-white bg-indigo-900 font-bold py-1 px-2 rounded"
+      @click="showFavorites = !showFavorites"
+    >
       <span x-show="!showFavorites">Afficher les favoris</span>
       <span x-show="showFavorites">Afficher tout</span>
     </button>

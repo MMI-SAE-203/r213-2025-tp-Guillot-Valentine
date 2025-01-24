@@ -2,11 +2,21 @@
 const { ...offre } = Astro.props;
 ---
 
-<p>Nom: {offre.nomMaison}</p>
-{offre.favori && <p>🌟</p>}
-<p>Adresse: {offre.adresse}</p>
-<p>Prix: {offre.prix}</p>
-<p>Surface: {offre.surface}</p>
-<p>Nombre de Chambres: {offre.nbChambres}</p>
-<p>Nombre de salle de bain: {offre.nbSdb}</p>
-<img src={offre.imgUrl} alt="image de la maison" class="w-1/2"/>
+<div
+  class="border-2 bg-indigo-100 border-indigo-900 pt-5 p-5 my-5 mx-5 rounded"
+  x-data="{ open: false }"
+>
+  <button @click="open = ! open"
+    ><span class="font-bold">Nom: </span>{offre.nomMaison} →
+  </button>
+
+  <div x-show="open" x-transition>
+    {offre.favori && <p>🌟</p>}
+    <p><span class="font-bold">Adresse: </span>{offre.adresse}</p>
+    <p><span class="font-bold">Prix: </span>{offre.prix} €</p>
+    <p><span class="font-bold">Surface: </span>{offre.surface} m2</p>
+    <p><span class="font-bold">Nombre de Chambres: </span>{offre.nbChambres}</p>
+    <p><span class="font-bold">Nombre de salle de bain: </span>{offre.nbSdb}</p>
+    <img src={offre.imgUrl} alt="image de la maison" class="w-1/2" />
+  </div>
+</div>
