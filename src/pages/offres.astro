@@ -48,10 +48,17 @@ const offres = [
     disposition
   </p>
 
-  <div>
-    {offres.map((offre)=>
-      <ul>{offre.nomMaison}</ul>
-      )
-    }
+  <div x-data="{ showFavorites: false }">
+    <button @click="showFavorites = !showFavorites">
+      <span x-show="!showFavorites">Afficher les favoris</span>
+      <span x-show="showFavorites">Afficher tout</span>
+    </button>
+
+    <div x-show="!showFavorites">
+      {offres.map((offre) => <Card {...offre} />)}
+    </div>
+    <div x-show="showFavorites">
+      {offres.map((offre) => offre.favori && <Card {...offre} />)}
+    </div>
   </div>
 </Base>
