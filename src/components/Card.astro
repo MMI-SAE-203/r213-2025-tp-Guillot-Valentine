@@ -4,14 +4,15 @@ console.log(offre);
 ---
 
 <div
-  class="border-2 bg-indigo-100 border-indigo-900 pt-5 p-5 my-5 mx-5 rounded"
+  class=" border-2 bg-indigo-100 border-indigo-900 pt-3 p-5 my-5 mx-5 rounded"
   x-data="{ open: false }"
 >
-  <button @click="open = ! open"
-    ><span class="font-bold">Nom: </span>{offre.nom_maison} →
+  <button @click="open = ! open">
+    <p class="font-bold text-xl pb-3">{offre.nom_maison}</p>
+    <img class="w-full" src={offre.img} alt="image de la maison" class="w-1/2" />
   </button>
 
-  <div x-show="open" x-transition>
+  <!-- <div x-show="open" x-transition>
     {offre.favori_maison && <p>🌟</p>}
     <p><span class="font-bold">Adresse: </span>{offre.adresse_maison}</p>
     <p><span class="font-bold">Prix: </span>{offre.prix_maison} €</p>
@@ -24,6 +25,6 @@ console.log(offre);
         offre.salledebain_maison
       }
     </p>
-    <img src={offre.img} alt="image de la maison" class="w-1/2" />
-  </div>
+    
+  </div> -->
 </div>
