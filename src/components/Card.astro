@@ -1,5 +1,6 @@
 ---
 const { ...offre } = Astro.props;
+console.log(offre);
 ---
 
 <div
@@ -7,16 +8,22 @@ const { ...offre } = Astro.props;
   x-data="{ open: false }"
 >
   <button @click="open = ! open"
-    ><span class="font-bold">Nom: </span>{offre.nomMaison} →
+    ><span class="font-bold">Nom: </span>{offre.nom_maison} →
   </button>
 
   <div x-show="open" x-transition>
-    {offre.favori && <p>🌟</p>}
-    <p><span class="font-bold">Adresse: </span>{offre.adresse}</p>
-    <p><span class="font-bold">Prix: </span>{offre.prix} €</p>
-    <p><span class="font-bold">Surface: </span>{offre.surface} m2</p>
-    <p><span class="font-bold">Nombre de Chambres: </span>{offre.nbChambres}</p>
-    <p><span class="font-bold">Nombre de salle de bain: </span>{offre.nbSdb}</p>
-    <img src={offre.imgUrl} alt="image de la maison" class="w-1/2" />
+    {offre.favori_maison && <p>🌟</p>}
+    <p><span class="font-bold">Adresse: </span>{offre.adresse_maison}</p>
+    <p><span class="font-bold">Prix: </span>{offre.prix_maison} €</p>
+    <p><span class="font-bold">Surface: </span>{offre.superficie_maison} m2</p>
+    <p>
+      <span class="font-bold">Nombre de Chambres: </span>{offre.chambre_maison}
+    </p>
+    <p>
+      <span class="font-bold">Nombre de salle de bain: </span>{
+        offre.salledebain_maison
+      }
+    </p>
+    <img src={offre.img} alt="image de la maison" class="w-1/2" />
   </div>
 </div>
