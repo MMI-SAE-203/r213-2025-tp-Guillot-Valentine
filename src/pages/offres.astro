@@ -14,7 +14,10 @@ const offres = await getOffres();
     Ci-dessous découvrez nos différentes offres !
   </p>
 
-  <div class="text-indigo-950" x-data="{ showFavorites: false }">
+  <div
+    class="text-indigo-950"
+    x-data="{ showFavorites: false, viewMode: 'grid' }"
+  >
     <button
       class="text-white bg-indigo-900 font-bold py-1 px-2 rounded"
       @click="showFavorites = !showFavorites"
@@ -23,10 +26,33 @@ const offres = await getOffres();
       <span x-show="showFavorites">Afficher tout</span>
     </button>
 
-    <div x-show="!showFavorites" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div class="pt-5">
+      <button
+        @click="viewMode = 'grid'"
+        :class="viewMode === 'grid' ? 'bg-white text-indigo-400 border border-indigo-400' : 'bg-indigo-400 text-white'"
+        class="text-white bg-indigo-400 font-semibold py-1 px-2 rounded"
+      >
+        Grille
+      </button>
+      <button
+        @click="viewMode = 'list'"
+        :class="viewMode === 'list' ? 'bg-white text-indigo-400 border border-indigo-400' : 'bg-indigo-400 text-white'"
+        class="text-white bg-indigo-400 font-semibold py-1 px-2 rounded"
+      >
+        Liste
+      </button>
+    </div>
+
+    <div
+      x-show="!showFavorites"
+      :class="viewMode === 'grid' ? 'grid grid-cols-1 lg:grid-cols-3 gap-4' : 'flex flex-col'"
+    >
       {offres.map((offre) => <Card {...offre} />)}
     </div>
-    <div x-show="showFavorites">
+    <div
+      x-show="showFavorites"
+      :class="viewMode === 'grid' ? 'grid grid-cols-1 lg:grid-cols-3 gap-4' : 'flex flex-col'"
+    >
       {offres.map((offre) => offre.favori_maison && <Card {...offre} />)}
     </div>
   </div>
