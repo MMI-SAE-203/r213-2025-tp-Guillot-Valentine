@@ -37,11 +37,12 @@ const offres = await getOffres();
       <button
         @click="viewMode = 'list'"
         :class="viewMode === 'list' ? 'bg-white text-indigo-400 border border-indigo-400' : 'bg-indigo-400 text-white'"
-        class= "bg-indigo-400 font-semibold py-1 px-2 rounded"
+        class="bg-indigo-400 font-semibold py-1 px-2 rounded"
       >
         Liste
       </button>
     </div>
+    <a href="/offres/surface/80">Voir les offres de plus de 80m²</a>
 
     <div
       x-show="!showFavorites"

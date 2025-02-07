@@ -28,3 +28,13 @@ export async function getOffre(id) {
         return null;
     }
 }
+
+export async function getOffresBySurface(s) {
+    const surface = await pb.collection('Maison').getFullList({
+        filter: `superficie_maison> ${s}` ,
+    });
+    surface.forEach((maison) => {
+        maison.imgUrl = pb.files.getURL(maison, maison.image);
+    });
+    return surface;
+}
