@@ -30,11 +30,23 @@ export async function getOffre(id) {
 }
 
 export async function getOffresBySurface(s) {
-    const surface = await pb.collection('Maison').getFullList({
+    let surface = await pb.collection('Maison').getFullList({
         filter: `superficie_maison> ${s}` ,
     });
-    surface.forEach((maison) => {
-        maison.imgUrl = pb.files.getURL(maison, maison.image);
-    });
+     surface = surface.map((ev) => {
+            ev.img= pb.files.getURL(ev, ev.photo_maison);
+            return ev;
+        });
     return surface;
+}
+
+export async function getOffresByPrice(p) {
+    let prix = await pb.collection('Maison').getFullList({
+        filter: `prix_maison< ${p}` ,
+    });
+     prix = prix.map((ev) => {
+            ev.img= pb.files.getURL(ev, ev.photo_maison);
+            return ev;
+        });
+    return prix;
 }
