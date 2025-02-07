@@ -17,3 +17,14 @@ export async function getOffres() {
         return [];
     }
 }
+
+export async function getOffre(id) {
+    try {
+        let data = await pb.collection('Maison').getOne(id);
+        data.imageUrl = pb.files.getURL(data, data.image);
+        return data;
+    } catch (error) {
+        console.log('Une erreur est survenue en lisant la maison', error);
+        return null;
+    }
+}

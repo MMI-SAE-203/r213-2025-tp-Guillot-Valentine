@@ -30,14 +30,14 @@ const offres = await getOffres();
       <button
         @click="viewMode = 'grid'"
         :class="viewMode === 'grid' ? 'bg-white text-indigo-400 border border-indigo-400' : 'bg-indigo-400 text-white'"
-        class="text-white bg-indigo-400 font-semibold py-1 px-2 rounded"
+        class="bg-indigo-400 font-semibold py-1 px-2 rounded"
       >
         Grille
       </button>
       <button
         @click="viewMode = 'list'"
         :class="viewMode === 'list' ? 'bg-white text-indigo-400 border border-indigo-400' : 'bg-indigo-400 text-white'"
-        class="text-white bg-indigo-400 font-semibold py-1 px-2 rounded"
+        class= "bg-indigo-400 font-semibold py-1 px-2 rounded"
       >
         Liste
       </button>

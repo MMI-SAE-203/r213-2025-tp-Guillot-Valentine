@@ -4,13 +4,20 @@ console.log(offre);
 ---
 
 <div
-  class=" border-2 bg-indigo-100 border-indigo-900 pt-3 p-5 my-5 mx-5 rounded"
+  class="border-2 bg-indigo-100 border-indigo-900 pt-3 p-5 my-5 mx-5 rounded"
   x-data="{ open: false }"
 >
   <button @click="open = ! open">
     <p class="font-bold text-xl pb-3">{offre.nom_maison}</p>
-    <img class="w-full" src={offre.img} alt="image de la maison" class="w-1/2" />
+    <img
+      class="w-full"
+      src={offre.img}
+      alt="image de la maison"
+      class="w-1/2"
+    />
   </button>
+  
+  <a href={`/offres/${offre.id}`}>Voir plus</a>
 
   <!-- <div x-show="open" x-transition>
     {offre.favori_maison && <p>🌟</p>}
