@@ -9,14 +9,13 @@ console.log(offre);
 >
   <button @click="open = ! open">
     <p class="font-bold text-xl pb-3">{offre.nom_maison}</p>
-    <img
-      class="full-width"
-      src={offre.img}
-      alt="image de la maison"
-    />
+    <img class="full-width" src={offre.img} alt="image de la maison" />
   </button>
-  
-  <a href={`/offres/${offre.id}`}>Voir plus</a>
+
+  <a
+    class="underline text-indigo-900 font-bold"
+    href={`/offres/${offre.id}`}>Voir plus</a
+  >
 
   <!-- <div x-show="open" x-transition>
     {offre.favori_maison && <p>🌟</p>}
