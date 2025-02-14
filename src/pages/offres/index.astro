@@ -43,8 +43,6 @@ const offres = await getOffres();
       </button>
     </div>
 
-    
-
     <div
       x-show="!showFavorites"
       :class="viewMode === 'grid' ? 'grid grid-cols-1 lg:grid-cols-3 gap-4' : 'flex flex-col'"
@@ -60,6 +58,7 @@ const offres = await getOffres();
   </div>
   <div class="pt-5 pb-8">
     <a href="/offres/surface/80">Voir les offres de plus de 80m² |</a>
-    <a href="/offres/prix/1000000">Voir les offres de moins de 1 000 000 €</a>
-    </div>
+    <a href="/offres/prix/1000000">Voir les offres de moins de 1 000 000 € |</a>
+    <a href="/offres/add">Mettre une maison en vente</a>
+  </div>
 </Base>
