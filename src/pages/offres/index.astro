@@ -36,31 +36,44 @@ if (Astro.request.method === "POST") {
     Ci-dessous découvrez nos différentes offres !
   </p>
 
-  <p>{message}</p>
+  <p class="text-indigo-900 pb-2">{message}</p>
   <form action="/offres" method="POST">
-    <input type="number" name="minPrix" placeholder="Prix minimum" />
-    <input type="number" name="maxPrix" placeholder="Prix maximum" />
-    <input type="submit" value="Filtrer par prix" />
+    <input
+      class="border rounded border-indigo-200"
+      type="number"
+      name="minPrix"
+      placeholder="Prix minimum"
+    />
+    <input
+      class="border rounded border-indigo-200"
+      type="number"
+      name="maxPrix"
+      placeholder="Prix maximum"
+    />
+    <input
+      class="bg-indigo-400 text-white font-semibold rounded px-1"
+      type="submit"
+      value="Filtrer par prix"
+    />
   </form>
 
   <div
     class="text-indigo-950"
     x-data="{ showFavorites: false, viewMode: 'grid' }"
   >
-    <button
-      class="text-white bg-indigo-900 font-bold py-1 px-2 rounded"
-      @click="showFavorites = !showFavorites"
-    >
-      <span x-show="!showFavorites">Afficher les favoris</span>
-      <span x-show="showFavorites">Afficher tout</span>
-    </button>
-
     <div class="pt-5">
-      
+      <button
+        class="text-white bg-indigo-900 font-bold py-1 px-2 rounded"
+        @click="showFavorites = !showFavorites"
+      >
+        <span x-show="!showFavorites">Afficher les favoris</span>
+        <span x-show="showFavorites">Afficher tout</span>
+      </button>
+
       <button
         @click="viewMode = 'grid'"
         :class="viewMode === 'grid' ? 'bg-white text-indigo-400 border border-indigo-400' : 'bg-indigo-400 text-white'"
-        class="bg-indigo-400 font-semibold py-1 px-2 rounded"
+        class="bg-indigo-400 font-semibold py-1 px-2 rounded ml-6"
       >
         Grille
       </button>
@@ -86,9 +99,11 @@ if (Astro.request.method === "POST") {
       {offres.map((offre) => offre.favori_maison && <Card {...offre} />)}
     </div>
   </div>
-  <div class="pt-5 pb-8">
+  <div class="py-5">
     <a href="/offres/surface/80">Voir les offres de plus de 80m² |</a>
     <a href="/offres/prix/1000000">Voir les offres de moins de 1 000 000 € |</a>
-    <a href="/offres/add">Mettre une maison en vente</a>
   </div>
+  <button class="text-white bg-indigo-900 font-bold mb-5 px-2 rounded">
+    <a href="/offres/add">Mettre une maison en vente</a>
+  </button>
 </Base>

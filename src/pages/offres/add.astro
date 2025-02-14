@@ -9,26 +9,45 @@ if (Astro.request.method === "POST") {
   message = response.message;
 }
 ---
-<Base>
-<h1 class="text-lg">Ajouter une offre</h1>
-<p>{message}</p>
-<form action="/offres/add" method="POST" enctype="multipart/form-data">
-  <input
-    type="text"
-    name="nom_maison"
-    placeholder="Nom de la maison"
-    required
-    class="w-full mt-2 p-2 border border-gray-300 rounded-md"
-  />
-  <input type="number" name="prix_maison" placeholder="Prix" />
-  <input
-    type="number"
-    name="salledebain_maison"
-    placeholder="Nombre de salles de bain"
-  />
-  <input type="number" name="chambre_maison" placeholder="Nombre de chambres" />
-  <input type="number" name="superficie_maison" placeholder="Superficie" />
-  <input type="file" name="photo_maison" />
-  <button type="submit">Ajouter</button>
-</form>
+
+<Base h1="Ajouter une offre">
+  <p class="text-indigo-900 font-bold my-5">{message}</p>
+  <form class="flex flex-col px-96" action="/offres/add" method="POST" enctype="multipart/form-data">
+    <input
+      type="text"
+      name="nom_maison"
+      placeholder="Nom de la maison"
+      required
+      class="mt-2 p-2 border border-indigo-200 rounded-md"
+    />
+    <input
+      type="number"
+      name="prix_maison"
+      placeholder="Prix"
+      class="mt-2 p-2 border border-indigo-200 rounded-md"
+    />
+    <input
+      type="number"
+      name="salledebain_maison"
+      placeholder="Nombre de salles de bain"
+      class="mt-2 p-2 border border-indigo-200 rounded-md"
+    />
+    <input
+      type="number"
+      name="chambre_maison"
+      placeholder="Nombre de chambres"
+      class="mt-2 p-2 border border-indigo-200 rounded-md"
+    />
+    <input
+      type="number"
+      name="superficie_maison"
+      placeholder="Superficie"
+      class="mt-2 p-2 mb-3 border border-indigo-200 rounded-md"
+    />
+    <input type="file" name="photo_maison" />
+    <button
+      class="bg-indigo-400 rounded px-1 py-1 text-white my-4"
+      type="submit">Ajouter</button
+    >
+  </form>
 </Base>
