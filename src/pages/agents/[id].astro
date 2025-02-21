@@ -1,0 +1,15 @@
+---
+import Base from "../../layouts/Base.astro";
+import { allMaisonsByAgentId } from "../../backend.mjs";
+import Card from "../../components/Card.astro";
+
+const { id } = Astro.params;
+const offres = await allMaisonsByAgentId(id);
+if (!offres) {
+  return Astro.redirect("/agents");
+}
+---
+
+<Base>
+  {offres.map((offre) => <Card {...offre} />)}
+</Base>
